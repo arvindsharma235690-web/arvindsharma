@@ -2,7 +2,6 @@ import {
   FaHeart,
   FaLinkedin,
   FaInstagram,
-  FaFacebookF,
   FaBullhorn
 } from "react-icons/fa";
 
@@ -116,22 +115,6 @@ const Footer = ({ darkMode }) => {
                 }}
               >
                 <FaLinkedin className="text-lg text-orange-400 group-hover:text-white transition-all duration-300" />
-              </a>
-
-              {/* Facebook */}
-              <a
-                href="#"
-                className="group w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{
-                  background: darkMode
-                    ? "rgba(255,255,255,0.05)"
-                    : "#ffffff",
-                  border: darkMode
-                    ? "1px solid #374151"
-                    : "1px solid #d1d5db"
-                }}
-              >
-                <FaFacebookF className="text-lg text-orange-400 group-hover:text-white transition-all duration-300" />
               </a>
 
             </div>
