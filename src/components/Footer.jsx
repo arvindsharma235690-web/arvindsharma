@@ -1,8 +1,8 @@
 import {
-  FaHeart,
   FaLinkedin,
   FaInstagram,
-  FaBullhorn
+  FaBullhorn,
+  FaExternalLinkAlt
 } from "react-icons/fa";
 
 const Footer = ({ darkMode }) => {
@@ -10,6 +10,7 @@ const Footer = ({ darkMode }) => {
   const currentYear = new Date().getFullYear();
 
   return (
+
     <footer
       className="relative overflow-hidden border-t"
       style={{
@@ -137,7 +138,7 @@ const Footer = ({ darkMode }) => {
           <div className="text-center lg:text-right">
 
             <div
-              className="inline-block px-5 py-3 rounded-2xl"
+              className="inline-block px-5 py-4 rounded-2xl"
               style={{
                 background: darkMode
                   ? "rgba(255,255,255,0.04)"
@@ -157,19 +158,26 @@ const Footer = ({ darkMode }) => {
                 © {currentYear} All Rights Reserved
               </p>
 
-              <p
-                className="text-sm flex items-center justify-center lg:justify-end gap-1 mt-2"
+              {/* Portfolio Credit */}
+              <a
+                href="https://portfolio-kappa-lake-26.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 mt-3 text-sm font-medium transition-all duration-300 hover:scale-105"
                 style={{
-                  color: darkMode ? "#9ca3af" : "#6b7280"
+                  color: darkMode ? "#d1d5db" : "#4b5563"
                 }}
               >
-                Designed with
-                <FaHeart className="text-red-500" />
-                by
-                <span className="text-orange-500 font-medium">
+
+                Crafted & Developed By
+
+                <span className="text-orange-500 font-semibold group-hover:text-orange-400 transition-all duration-300">
                   Ronak Sharma
                 </span>
-              </p>
+
+                <FaExternalLinkAlt className="text-orange-400 text-[10px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+
+              </a>
 
             </div>
 
@@ -180,6 +188,7 @@ const Footer = ({ darkMode }) => {
       </div>
 
     </footer>
+
   );
 };
 

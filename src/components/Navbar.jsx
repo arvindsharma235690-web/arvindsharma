@@ -1,211 +1,298 @@
 import { motion } from 'framer-motion';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import {
+  Menu,
+  Moon,
+  Sun,
+  X,
+  TrendingUp,
+  BarChart3
+} from 'lucide-react';
+
 import { useState } from 'react';
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
-    const [activeSection, setActiveSection] = useState('home');
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navItems = [
-        { name: 'Home', link: '#home' },
-        { name: 'About', link: '#about' },
-        { name: 'Skills', link: '#skills' },
-        { name: 'Projects', link: '#projects' },
-        { name: 'Contact', link: '#contact' }
-    ];
 
-    const lightColors = {
-        navBg: 'bg-linear-to-br from-orange-200 to-white',
-        textPrimary: 'text-gray-900',
-        textSecondary: 'text-gray-800',
-        textHover: 'text-orange-500',
-        textActive: 'text-orange-600',
-        indicator: 'from-orange-500 to-amber-500',
-        button: 'from-orange-500 to-amber-500',
-    };
+  const [activeSection, setActiveSection] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const darkColors = {
-        navBg: 'bg-linear-to-br from-gray-700 to-black',
-        textPrimary: 'text-white',
-        textSecondary: 'text-gray-300',
-        textHover: 'text-orange-400',
-        textActive: 'text-orange-400',
-        indicator: 'from-orange-500 to-amber-500',
-        button: 'from-orange-500 to-amber-500',
-    };
+  const navItems = [
+    { name: 'Home', link: '#home' },
+    { name: 'About', link: '#about' },
+    { name: 'Skills', link: '#skills' },
+    { name: 'Projects', link: '#projects' },
+    { name: 'Contact', link: '#contact' }
+  ];
 
-    const colors = darkMode ? darkColors : lightColors;
+  const handleNavClick = (itemName) => {
+    setActiveSection(itemName.toLowerCase());
+    setIsMenuOpen(false);
+  }
 
-    const handleNavClick = (itemName) => {
-        setActiveSection(itemName.toLowerCase());
-        setIsMenuOpen(false);
-    }
+  return (
 
-    return (
-        <div className='flex justify-center w-full fixed z-50 mt-4'>
-            <motion.nav
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5 }}
-                className={`flex items-center justify-center ${colors.navBg}
-            backdrop-blur-lg rounded-2xl px-4 lg:px-8 py-2 shadow-lg `}>
+    <div className='fixed top-0 left-0 w-full z-50 px-4 py-4'>
 
-                <div className='flex items-center justify-between w-full space-x-6 lg:space-x-8'>
-                    {/* Logo */}
-                    <motion.a
-                        href='/'
-                        whileHover={{ scale: 1.05 }}
-                        className="flex items-center space-x-2 cursor-pointer">
-                        <span
-                            className={`text-xl font-bold ${colors.textPrimary}`}>
-                            Portfolio<span
-                                className="text-orange-500">.</span>
-                        </span>
-                    </motion.a>
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className='max-w-7xl mx-auto relative overflow-hidden rounded-3xl backdrop-blur-xl border shadow-2xl'
+        style={{
+          background: darkMode
+            ? 'rgba(17,24,39,0.75)'
+            : 'rgba(255,255,255,0.75)',
+          borderColor: darkMode
+            ? '#374151'
+            : '#e5e7eb'
+        }}
+      >
 
-                    {/* Navigation Items */}
-                    <div className="hidden lg:flex items-center space-x-6">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.name}
-                                href={item.link} // FIXED: Yahan 'item.href' ki jagah 'item.link' kar diya
-                                onClick={() => handleNavClick(item.name)}
-                                className="relative cursor-pointer" // ADDED: cursor-pointer
-                            >
-                                <motion.span
-                                    className={`font-medium transition-colors duration-300 
-                            ${activeSection === item.name.toLowerCase()
-                                            ? colors.textActive
-                                            : `${colors.textSecondary} hover:text-orange-500`
-                                        }`}
+        {/* Glow Effect */}
+        <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[120px] bg-orange-500/10 blur-[90px] rounded-full'></div>
 
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}>
-                                    {item.name}
-                                </motion.span>
-                                {activeSection === item.name.toLowerCase() && (
-                                    <motion.div
-                                        layoutId="navbar-indicator"
-                                        className={`absolute -bottom-1 left-0 
-                                right-0 h-0.5 bg-linear-to-r rounded-full 
-                                ${colors.indicator}`}>
-                                    </motion.div>
-                                )}
-                            </a>
-                        ))}
-                    </div>
+        <div className='relative z-10 flex items-center justify-between px-5 lg:px-8 py-4'>
 
-                    <div className='flex items-center space-x-2'>
-                        {/* Dark Mode Toggle */}
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={toggleDarkMode}
-                            className={`p-2 rounded-full cursor-pointer ${darkMode
-                                    ? 'bg-gray-700'
-                                    : 'bg-gray-200'
-                                } transition-colors`}
-                            aria-label={darkMode
-                                ? 'Switch to light mode'
-                                : 'Switch to dark mode'
-                            }>
+          {/* LOGO */}
+          <motion.a
+            href='/'
+            whileHover={{ scale: 1.05 }}
+            className='flex items-center gap-3 cursor-pointer'
+          >
 
-                            {darkMode ? (
-                                <Sun className='w-5 h-5 text-yellow-300' />
-                            ) : (
-                                <Moon className='w-5 h-5 text-gray-700' />
-                            )}
+            <div className='w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400'>
 
-                        </motion.button>
+              <BarChart3 className='w-6 h-6' />
 
-                        {/*Button */}
-                        <motion.a
-                            href='#contact'
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className={`hidden lg:block px-6 py-2 font-semibold rounded-full 
-                        bg-linear-to-r ${colors.button} text-white shadow-md hover:shadow-lg transition-shadow cursor-pointer`}>
-                            Hire Me
-                        </motion.a>
-                    </div>
+            </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className='flex lg:hidden items-center space-x-4 px-2'>
-                        <motion.button
-                            whileTap={{ scale: 0.9 }}
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className={`p-2 rounded-lg cursor-pointer ${darkMode
-                                    ? 'bg-gray-700'
-                                    : 'bg-gray-200'
-                                }`}>
-                            {isMenuOpen ? (
-                                <X className={`w-5 h-5 ${darkMode
-                                        ? 'text-white'
-                                        : 'text-gray-700'
-                                    }`} />
-                            ) : (
-                                <Menu className={`w-5 h-5 ${darkMode
-                                        ? 'text-white'
-                                        : 'text-gray-700'
-                                    }`} />
-                            )}
+            <div>
 
-                        </motion.button>
-                    </div>
-                </div>
+              <h2
+                className='text-xl lg:text-2xl font-bold'
+                style={{
+                  color: darkMode ? 'white' : '#111827'
+                }}
+              >
 
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className={`absolute top-full left-0  right-0 mt-2 lg:hidden 
-                ${darkMode
-                                ? 'bg-gray-900/95'
-                                : 'bg-white/95'
-                            } backdrop-blur-lg rounded-xl shadow-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'
-                            }`}>
-                        <div className='px-4 py-3 space-y-2'>
-                            {navItems.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.link}
-                                    onClick={() => handleNavClick(item.name)}
-                                    className='block cursor-pointer'>
-                                    <motion.div
-                                        whileHover={{ x: 5 }}
-                                        className={`py-3 px-4 rounded-lg text-center
-                                ${activeSection === item.name.toLowerCase()
-                                                ? darkMode ? 'bg-gray-800' : 'bg-gray-50'
-                                                : ''
-                                            }`}>
-                                        <span
-                                            className={`font-medium ${activeSection === item.name.toLowerCase()
-                                                    ? colors.textActive
-                                                    : colors.textSecondary
-                                                }`}>
+                Arvind<span className='text-orange-500'>.</span>
 
-                                            {item.name}
-                                        </span>
-                                    </motion.div>
-                                </a>
-                            ))}
+              </h2>
 
-                            <motion.a
-                                href='#contact'
-                                onClick={() => setIsMenuOpen(false)}
-                                whileTap={{ scale: 0.95 }}
-                                className={`block py-3 px-4 text-center font-semibold
-                        rounded-lg bg-linear-to-r ${colors.button}
-                        text-white shadow-md cursor-pointer`}>
-                                Hire Me
-                            </motion.a>
-                        </div>
-                    </motion.div>
+              <p
+                className='text-xs'
+                style={{
+                  color: darkMode ? '#9ca3af' : '#6b7280'
+                }}
+              >
+                Digital Marketer
+              </p>
+
+            </div>
+
+          </motion.a>
+
+          {/* DESKTOP NAV */}
+          <div className='hidden lg:flex items-center gap-8'>
+
+            {navItems.map((item) => (
+
+              <a
+                key={item.name}
+                href={item.link}
+                onClick={() => handleNavClick(item.name)}
+                className='relative group'
+              >
+
+                <motion.span
+                  whileHover={{ y: -2 }}
+                  className={`font-medium transition-all duration-300 ${
+                    activeSection === item.name.toLowerCase()
+                      ? 'text-orange-400'
+                      : darkMode
+                        ? 'text-gray-300 hover:text-orange-400'
+                        : 'text-gray-700 hover:text-orange-500'
+                  }`}
+                >
+
+                  {item.name}
+
+                </motion.span>
+
+                {/* Active Indicator */}
+                {activeSection === item.name.toLowerCase() && (
+
+                  <motion.div
+                    layoutId='navbar-indicator'
+                    className='absolute -bottom-2 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-orange-500 to-amber-500'
+                  />
+
                 )}
-            </motion.nav>
+
+              </a>
+
+            ))}
+
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className='flex items-center gap-3'>
+
+            {/* Marketing Badge */}
+            <div
+              className='hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 text-orange-400 text-sm font-medium'
+            >
+
+              <TrendingUp className='w-4 h-4' />
+
+              Growth Expert
+
+            </div>
+
+            {/* Dark Mode */}
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={toggleDarkMode}
+              className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                darkMode
+                  ? 'bg-white/5 border border-gray-700'
+                  : 'bg-gray-100 border border-gray-200'
+              }`}
+            >
+
+              {darkMode ? (
+                <Sun className='w-5 h-5 text-yellow-300' />
+              ) : (
+                <Moon className='w-5 h-5 text-gray-700' />
+              )}
+
+            </motion.button>
+
+            {/* CTA Button */}
+            <motion.a
+              href='#contact'
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className='hidden lg:inline-flex items-center justify-center px-6 py-3 rounded-2xl text-white font-semibold transition-all duration-300 hover:shadow-[0_0_35px_rgba(249,115,22,0.45)]'
+              style={{
+                background:
+                  'linear-gradient(to right, #f97316, #f59e0b)'
+              }}
+            >
+
+              Let's Talk
+
+            </motion.a>
+
+            {/* MOBILE MENU BUTTON */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`lg:hidden w-11 h-11 rounded-2xl flex items-center justify-center ${
+                darkMode
+                  ? 'bg-white/5 border border-gray-700'
+                  : 'bg-gray-100 border border-gray-200'
+              }`}
+            >
+
+              {isMenuOpen ? (
+
+                <X
+                  className={`w-5 h-5 ${
+                    darkMode
+                      ? 'text-white'
+                      : 'text-gray-700'
+                  }`}
+                />
+
+              ) : (
+
+                <Menu
+                  className={`w-5 h-5 ${
+                    darkMode
+                      ? 'text-white'
+                      : 'text-gray-700'
+                  }`}
+                />
+
+              )}
+
+            </motion.button>
+
+          </div>
+
         </div>
-    )
+
+        {/* MOBILE MENU */}
+        {isMenuOpen && (
+
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className='lg:hidden border-t px-5 py-5 space-y-3'
+            style={{
+              borderColor: darkMode
+                ? '#374151'
+                : '#e5e7eb'
+            }}
+          >
+
+            {navItems.map((item) => (
+
+              <a
+                key={item.name}
+                href={item.link}
+                onClick={() => handleNavClick(item.name)}
+                className='block'
+              >
+
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  className={`rounded-2xl px-4 py-3 text-center font-medium transition-all duration-300 ${
+                    activeSection === item.name.toLowerCase()
+                      ? darkMode
+                        ? 'bg-orange-500/10 text-orange-400'
+                        : 'bg-orange-50 text-orange-500'
+                      : darkMode
+                        ? 'text-gray-300'
+                        : 'text-gray-700'
+                  }`}
+                >
+
+                  {item.name}
+
+                </motion.div>
+
+              </a>
+
+            ))}
+
+            {/* Mobile Button */}
+            <motion.a
+              href='#contact'
+              onClick={() => setIsMenuOpen(false)}
+              whileTap={{ scale: 0.95 }}
+              className='block text-center py-3 rounded-2xl text-white font-semibold mt-4'
+              style={{
+                background:
+                  'linear-gradient(to right, #f97316, #f59e0b)'
+              }}
+            >
+
+              Let's Talk
+
+            </motion.a>
+
+          </motion.div>
+
+        )}
+
+      </motion.nav>
+
+    </div>
+
+  )
 }
 
-export default Navbar
+export default Navbar;
