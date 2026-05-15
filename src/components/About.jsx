@@ -1,147 +1,334 @@
+import {
+  FaBullhorn,
+  FaChartLine,
+  FaSearch,
+  FaUsers,
+  FaGoogle,
+  FaInstagram
+} from "react-icons/fa";
 
-// import about from '../assets/About.png'
 const About = ({ darkMode }) => {
-    return (
-        <section id="about" className={`min-h-screen overflow-hidden flex
-    items-center justify-center px-4 sm:px-6`}>
 
-            <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2
-    gap-8 sm:gap-12 items-center">
+  const skills = [
+    {
+      icon: <FaSearch />,
+      title: "SEO Optimization"
+    },
+    {
+      icon: <FaInstagram />,
+      title: "Social Media Marketing"
+    },
+    {
+      icon: <FaGoogle />,
+      title: "Google & Meta Ads"
+    },
+    {
+      icon: <FaUsers />,
+      title: "Lead Generation"
+    }
+  ];
 
-                <figure
-                    data-aos='fade-up'
-                    data-aos-delay='300'
-                    className="flex flex-wrap justify-center gap-4 relative
-    order-2 lg:order-1">
-                    <div className="relative w-75 h-75 lg:w-96 lg:h-96">
+  return (
 
-                        {/* Image */}
-                        <div className="absolute -inset-6 lg:-inset-20
-            bg-linear-to-l from-[#f97316] via-[#fb923c]
-            to-[#f59e0b] rotate-12 star-shape z-0"
-                            data-aos='zoom-in'
-                            data-aos-delay='600'>
-                        </div>
-                        <img
-                            src="https://res.cloudinary.com/dhovcmjae/image/upload/f_auto,q_auto/v1777022191/About_nczer6.png"
-                            alt="About Image"
-                            className='absolute inset-0 w-full h-full
-            object-cover z-10 transition-all duration-300'
-                            data-aos='zoom-in'
-                            data-aos-delay='400' />
-                    </div>
-                </figure>
-                <article
-                    data-aos='fade-left'
-                    data-aos-delay='300'
-                    className='text-center lg:text-left relative order-1
-    lg:order-2'>
-                    <header>
-                        <h1 className='text-3xl sm:text-4xl lg:text-5xl
-            xl:text-6xl font-bold mb-4 sm:mb-6
-            text-transparent bg-linear-to-r from-orange-400
-            to-orange-600 bg-clip-text'
-                            data-aos='fade-up'
-                            data-aos-delay='400'>
-                            About Me
-                        </h1>
-                    </header>
-                    <p className={`text-sm sm:text-base lg:text-lg
-                        xl:text-xl mb-6 sm:mb-8 leading-relaxed
-                        bg-linear-to-r from-orange-900/10 tp-orange-900/5
-                        p-4 sm:p-6 rounded-xl sm:rounded-2xl
-                        backdrop-blur-sm
-                        ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
-                        data-aos='fade-up'
-                        data-aos-delay='500'>
-                        I am an aspiring Digital Marketer with a strong interest in helping businesses grow their online presence through effective and data-driven marketing strategies. I recently completed my Digital Marketing training from Arena Trainings and I am currently gaining practical industry experience through my internship.
-                        <br /><br />
-                        My key areas of interest include:
-                        <br />
-                        • Search Engine Optimization (SEO) – On-Page and Off-Page Optimization
-                        <br />
-                        • Social Media Marketing and Campaign Management
-                        <br />
-                        • Lead Generation Strategies
-                        <br />
-                        • Paid Advertising (Google Ads & Meta Ads)
-                        <br />
-                        • Keyword Research and Competitor Analysis
-                        <br />
-                        • Content Marketing and Basic Copywriting
-                        <br /><br />
+    <section
+      id="about"
+      className="relative min-h-screen overflow-hidden flex items-center py-20 px-4 sm:px-6"
+      style={{
+        background: darkMode ? "#111827" : "#f9fafb"
+      }}
+    >
 
-                        I enjoy analyzing digital marketing trends, optimizing campaigns, and using data insights to improve online visibility and engagement.
-                        <br />
-                        Currently, I am focused on improving my skills in tools such as Google Ads, Google Analytics, and Meta Ads Manager while working on real-world marketing projects.
-                    </p>
-                    <div
-                        className='flex flex-wrap justify-center
-                    lg:justify-start gap-4 sm:gap-6 lg:gap-8 mb-6
-                    sm:mb-8'>
-                        {/* Education */}
+      {/* Background Blur */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-orange-500/10 blur-[120px] rounded-full"></div>
 
-                        <div
-                            className='text-center'
-                            data-aos='zoom-in'
-                            data-aos-delay='600'>
-                            <div className='text-2xl sm:text-3xl
-                            lg:text-4xl font-bold text-orange-400'>5+</div>
-                            <div className={`text-xs sm:text-sm lg:text-base
-                                ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                Skills
-                            </div>
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-14 items-center relative z-10">
 
-                        </div>
-                        {/* Years Experience */}
-                        <div
-                            className='text-center'
-                            data-aos='zoom-in'
-                            data-aos-delay='650'>
-                            <div className='text-2xl sm:text-3xl
-                            lg:text-4xl font-bold text-orange-400'>2+</div>
-                            <div className={`text-xs sm:text-sm lg:text-base
-                                ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                Years of Experience
-                            </div>
+        {/* LEFT IMAGE SECTION */}
+        <div
+          className="relative flex justify-center"
+          data-aos="fade-right"
+        >
 
-                        </div>
+          {/* Circle Glow */}
+          <div className="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] rounded-full bg-orange-500/20 blur-[120px]"></div>
 
-                        {/* Project Completed */}
-                        <div
-                            className='text-center'
-                            data-aos='zoom-in'
-                            data-aos-delay='700'>
-                            <div className='text-2xl sm:text-3xl
-                            lg:text-4xl font-bold text-orange-400'>10+</div>
-                            <div className={`text-xs sm:text-sm lg:text-base
-                                ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                Project Completed
-                            </div>
+          {/* Main Image */}
+          <div
+            className="relative rounded-[40px] overflow-hidden border p-3 backdrop-blur-xl"
+            style={{
+              background: darkMode
+                ? "rgba(31,41,55,0.8)"
+                : "rgba(255,255,255,0.8)",
+              borderColor: darkMode ? "#374151" : "#e5e7eb"
+            }}
+          >
 
-                        </div>
-                    </div>
+            <img
+              src="https://res.cloudinary.com/dhovcmjae/image/upload/f_auto,q_auto/v1777022191/About_nczer6.png"
+              alt="About"
+              className="w-[280px] sm:w-[400px] lg:w-[450px] object-cover rounded-[30px]"
+            />
 
-                    <a
-                        href="#home"
-                        className={`w-full sm:w-auto border-2 border-orange-500 inline-flex items-center 
-                       justify-center py-2 px-4 sm:px-6 
-                       hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]
-                       rounded-full text-base sm:text-lg font-semibold 
-                       transition-all duration-300 transform
-                       ${darkMode
-                                ? 'text-white bg-orange-500/10'
-                                : 'text-gray-800 bg-white/90'}`}
-                        data-aos='fade-up'
-                        data-aos-delay='800'
-                    >
-                        Learn More
-                    </a>
-                </article>
+            {/* Floating Card 1 */}
+            <div
+              className="absolute -top-5 -left-5 px-4 py-3 rounded-2xl backdrop-blur-xl"
+              style={{
+                background: darkMode
+                  ? "rgba(17,24,39,0.9)"
+                  : "rgba(255,255,255,0.9)",
+                border: darkMode
+                  ? "1px solid #374151"
+                  : "1px solid #e5e7eb"
+              }}
+            >
+
+              <div className="flex items-center gap-3">
+
+                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center text-orange-400">
+                  <FaChartLine />
+                </div>
+
+                <div>
+
+                  <h4
+                    className="font-bold text-sm"
+                    style={{
+                      color: darkMode ? "white" : "#111827"
+                    }}
+                  >
+                    Marketing Growth
+                  </h4>
+
+                  <p
+                    className="text-xs"
+                    style={{
+                      color: darkMode ? "#9ca3af" : "#6b7280"
+                    }}
+                  >
+                    Strategy & Analytics
+                  </p>
+
+                </div>
+
+              </div>
+
             </div>
-        </section>
 
-    )
+            {/* Floating Card 2 */}
+            <div
+              className="absolute -bottom-5 right-0 px-4 py-3 rounded-2xl backdrop-blur-xl"
+              style={{
+                background: darkMode
+                  ? "rgba(17,24,39,0.9)"
+                  : "rgba(255,255,255,0.9)",
+                border: darkMode
+                  ? "1px solid #374151"
+                  : "1px solid #e5e7eb"
+              }}
+            >
+
+              <div className="flex items-center gap-3">
+
+                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center text-orange-400">
+                  <FaBullhorn />
+                </div>
+
+                <div>
+
+                  <h4
+                    className="font-bold text-sm"
+                    style={{
+                      color: darkMode ? "white" : "#111827"
+                    }}
+                  >
+                    Brand Promotion
+                  </h4>
+
+                  <p
+                    className="text-xs"
+                    style={{
+                      color: darkMode ? "#9ca3af" : "#6b7280"
+                    }}
+                  >
+                    Ads & Campaigns
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div
+          className="text-center lg:text-left"
+          data-aos="fade-left"
+        >
+
+          {/* Small Tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 text-orange-400 text-sm font-medium mb-6">
+
+            <FaBullhorn />
+
+            Digital Marketing Expert
+
+          </div>
+
+          {/* Heading */}
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            style={{
+              color: darkMode ? "white" : "#111827"
+            }}
+          >
+
+            Helping Brands Grow In The{" "}
+
+            <span
+              style={{
+                background:
+                  "linear-gradient(to right, #f97316, #f59e0b)",
+                WebkitBackgroundClip: "text",
+                color: "transparent"
+              }}
+            >
+              Digital World
+            </span>
+
+          </h2>
+
+          {/* Description */}
+          <p
+            className="text-base sm:text-lg leading-relaxed mb-8"
+            style={{
+              color: darkMode ? "#d1d5db" : "#6b7280"
+            }}
+          >
+            I’m an aspiring Digital Marketer passionate about helping businesses
+            grow through powerful marketing strategies, social media campaigns,
+            SEO optimization, and performance advertising.
+
+            I recently completed my Digital Marketing training from Arena Trainings
+            and currently work on real-world marketing projects to improve online
+            visibility, engagement, and lead generation.
+          </p>
+
+          {/* Skills Grid */}
+          <div className="grid sm:grid-cols-2 gap-4 mb-10">
+
+            {skills.map((item, index) => (
+
+              <div
+                key={index}
+                className="flex items-center gap-4 rounded-2xl p-4 border transition-all hover:-translate-y-1"
+                style={{
+                  background: darkMode
+                    ? "rgba(255,255,255,0.03)"
+                    : "#ffffff",
+                  borderColor: darkMode ? "#374151" : "#e5e7eb"
+                }}
+              >
+
+                <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-lg">
+                  {item.icon}
+                </div>
+
+                <h4
+                  className="font-semibold"
+                  style={{
+                    color: darkMode ? "white" : "#111827"
+                  }}
+                >
+                  {item.title}
+                </h4>
+
+              </div>
+
+            ))}
+
+          </div>
+
+          {/* Stats */}
+          <div className="flex flex-wrap gap-8 mb-10 justify-center lg:justify-start">
+
+            <div>
+
+              <h3 className="text-4xl font-bold text-orange-400">
+                10+
+              </h3>
+
+              <p
+                className="text-sm mt-1"
+                style={{
+                  color: darkMode ? "#9ca3af" : "#6b7280"
+                }}
+              >
+                Campaigns Managed
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-4xl font-bold text-orange-400">
+                5+
+              </h3>
+
+              <p
+                className="text-sm mt-1"
+                style={{
+                  color: darkMode ? "#9ca3af" : "#6b7280"
+                }}
+              >
+                Marketing Skills
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-4xl font-bold text-orange-400">
+                2+
+              </h3>
+
+              <p
+                className="text-sm mt-1"
+                style={{
+                  color: darkMode ? "#9ca3af" : "#6b7280"
+                }}
+              >
+                Years Learning
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* Button */}
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(249,115,22,0.5)]"
+            style={{
+              background:
+                "linear-gradient(to right, #f97316, #f59e0b)"
+            }}
+          >
+
+            Let's Work Together
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  )
 }
 
 export default About

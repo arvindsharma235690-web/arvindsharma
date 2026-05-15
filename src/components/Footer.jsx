@@ -39,7 +39,7 @@ const Footer = ({ darkMode }) => {
               <div>
 
                 <h3 className="text-3xl font-bold text-orange-500">
-                  Arvind
+                  Arvind Sharma
                 </h3>
 
                 <p

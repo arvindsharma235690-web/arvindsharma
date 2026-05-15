@@ -129,9 +129,12 @@ const Contact = ({ darkMode }) => {
 
             {/* Floating Card */}
             <div
-              className="absolute bottom-4 left-1/2 -translate-x-1/2
-              lg:left-10 lg:translate-x-0
-              rounded-2xl px-5 py-4 backdrop-blur-xl"
+              className="
+              relative mt-6 mx-auto
+              lg:absolute lg:bottom-4 lg:left-10
+              lg:translate-x-0
+              rounded-2xl px-5 py-4 backdrop-blur-xl
+              w-fit"
               style={{
                 background: darkMode
                   ? "rgba(17,24,39,0.8)"

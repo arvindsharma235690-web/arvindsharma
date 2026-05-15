@@ -8,6 +8,7 @@ import Skills from "./components/Skills"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
+import WhatsAppButton from "./components/WhatsAppButton";
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
   useEffect(() => {
@@ -41,6 +42,7 @@ const App = () => {
       <Projects darkMode={darkMode} />
       <Contact darkMode={darkMode} />
       <Footer darkMode={darkMode} />
+      <WhatsAppButton darkMode={darkMode} />
     </div>
   )
 }

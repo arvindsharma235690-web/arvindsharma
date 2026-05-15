@@ -2,7 +2,13 @@ import instagram from '../assets/instagram.png'
 import linkedin from '../assets/linkedin.png'
 import CV from '../assets/CV.pdf'
 
-import { DownloadIcon, Mail } from 'lucide-react'
+import {
+  DownloadIcon,
+  Mail,
+  TrendingUp,
+  BarChart3,
+  Target
+} from 'lucide-react'
 
 const Hero = ({ darkMode }) => {
 
@@ -38,31 +44,53 @@ const Hero = ({ darkMode }) => {
   const theme = darkMode ? darkTheme : lightTheme;
 
   return (
-    <div className='relative overflow-hidden min-h-screen flex flex-col'>
+
+    <div
+      className='relative overflow-hidden min-h-screen flex flex-col'
+      style={{
+        background: darkMode ? '#111827' : '#f9fafb'
+      }}
+    >
+
+      {/* Background Blur */}
+      <div className='absolute top-0 left-0 w-72 h-72 bg-orange-500/10 blur-[140px] rounded-full'></div>
+
+      <div className='absolute bottom-0 right-0 w-72 h-72 bg-amber-500/10 blur-[140px] rounded-full'></div>
 
       <section
         id='home'
-        data-aos='fade-up'
-        data-aos-delay='250'
-        className='body-font z-10'
+        className='body-font z-10 relative'
       >
 
         <div
           className='container mx-auto flex px-4 sm:px-8 lg:px-14
-          py-12 lg:py-32 flex-col lg:flex-row items-center justify-between
-          lg:mt-0 mt-14'
+          py-12 lg:py-24 flex-col lg:flex-row items-center justify-between
+          lg:mt-0 mt-14 gap-14'
         >
 
-          {/* Left */}
+          {/* LEFT SIDE */}
           <div
             className='lg:w-1/2 w-full flex flex-col items-center
-            lg:items-start text-center lg:text-left mb-12 lg:mb-0'
+            lg:items-start text-center lg:text-left'
+            data-aos='fade-right'
           >
+
+            {/* Tag */}
+            <div
+              className='inline-flex items-center gap-2 px-4 py-2 rounded-full
+              bg-orange-500/10 text-orange-400 text-sm font-medium mb-6'
+            >
+
+              <TrendingUp className='w-4 h-4' />
+
+              Digital Marketing Expert
+
+            </div>
 
             {/* Social Icons */}
             <div
-              className='flex justify-center lg:justify-start 
-              gap-4 sm:gap-6 mb-6 sm:mb-7 w-full'
+              className='flex justify-center lg:justify-start
+              gap-4 mb-8'
             >
 
               {socialIcons.map((social, index) => (
@@ -72,19 +100,25 @@ const Hero = ({ darkMode }) => {
                   href={social.link}
                   target='_blank'
                   rel='noopener noreferrer'
-                  data-aos-delay={`${400 + index * 100}`}
-                  className='transform hover:scale-110
-                  transition-transform duration-300'
+                  className='group w-12 h-12 rounded-2xl flex items-center justify-center
+                  transition-all duration-300 hover:-translate-y-1'
+                  style={{
+                    background: darkMode
+                      ? 'rgba(255,255,255,0.05)'
+                      : '#ffffff',
+                    border: darkMode
+                      ? '1px solid #374151'
+                      : '1px solid #e5e7eb'
+                  }}
                 >
 
                   <img
                     src={social.icon}
                     alt={social.alt}
-                    className={`w-8 h-8 sm:w-10 sm:h-10
-                    object-contain ${
+                    className={`w-6 h-6 object-contain transition-all duration-300 ${
                       darkMode
-                        ? ''
-                        : 'filter brightness-75'
+                        ? 'group-hover:brightness-125'
+                        : 'group-hover:brightness-50'
                     }`}
                   />
 
@@ -96,36 +130,118 @@ const Hero = ({ darkMode }) => {
 
             {/* Heading */}
             <h1
-              className={`title-font text-3xl sm:text-4xl
-              lg:text-5xl mb-4 font-bold ${theme.textPrimary}`}
-              data-aos='fade-up'
-              data-aos-delay='500'
+              className={`title-font text-4xl sm:text-5xl
+              lg:text-6xl xl:text-7xl mb-6 font-bold leading-tight ${theme.textPrimary}`}
             >
-              Hi, I'm Arvind Sharma
+
+              Grow Your Brand With{" "}
+
+              <span
+                className='text-transparent bg-clip-text'
+                style={{
+                  backgroundImage:
+                    'linear-gradient(to right, #f97316, #f59e0b)'
+                }}
+              >
+                Smart Marketing
+              </span>
+
             </h1>
 
             {/* Description */}
             <p
-              className={`mb-6 sm:mb-8 leading-relaxed max-w-md
-              sm:max-w-lg ${theme.textSecondary}`}
-              data-aos='fade-up'
-              data-aos-delay='600'
+              className={`mb-8 leading-relaxed max-w-xl text-base sm:text-lg ${theme.textSecondary}`}
             >
-              Digital Marketing Expert passionate about scaling brands through powerful ad strategies and performance marketing.
 
-              Expertise in Google Ads, Meta Ads, Lead Generation, and Social Media Growth.
+              Hi, I'm Arvind Sharma — a passionate Digital Marketing Expert helping businesses scale through Google Ads, Meta Ads, SEO, lead generation, and high-performing social media strategies.
 
-              Ready to help your business reach the right audience and generate measurable results.
             </p>
 
+            {/* Stats */}
+            <div
+              className='flex flex-wrap gap-6 mb-10 justify-center lg:justify-start'
+            >
+
+              <div
+                className='rounded-2xl px-5 py-4'
+                style={{
+                  background: darkMode
+                    ? 'rgba(255,255,255,0.04)'
+                    : '#ffffff',
+                  border: darkMode
+                    ? '1px solid #374151'
+                    : '1px solid #e5e7eb'
+                }}
+              >
+
+                <h3 className='text-3xl font-bold text-orange-400'>
+                  10+
+                </h3>
+
+                <p
+                  className={`text-sm mt-1 ${theme.textSecondary}`}
+                >
+                  Projects
+                </p>
+
+              </div>
+
+              <div
+                className='rounded-2xl px-5 py-4'
+                style={{
+                  background: darkMode
+                    ? 'rgba(255,255,255,0.04)'
+                    : '#ffffff',
+                  border: darkMode
+                    ? '1px solid #374151'
+                    : '1px solid #e5e7eb'
+                }}
+              >
+
+                <h3 className='text-3xl font-bold text-orange-400'>
+                  5+
+                </h3>
+
+                <p
+                  className={`text-sm mt-1 ${theme.textSecondary}`}
+                >
+                  Marketing Skills
+                </p>
+
+              </div>
+
+              <div
+                className='rounded-2xl px-5 py-4'
+                style={{
+                  background: darkMode
+                    ? 'rgba(255,255,255,0.04)'
+                    : '#ffffff',
+                  border: darkMode
+                    ? '1px solid #374151'
+                    : '1px solid #e5e7eb'
+                }}
+              >
+
+                <h3 className='text-3xl font-bold text-orange-400'>
+                  2+
+                </h3>
+
+                <p
+                  className={`text-sm mt-1 ${theme.textSecondary}`}
+                >
+                  Experience
+                </p>
+
+              </div>
+
+            </div>
+
             {/* Buttons */}
-            <div className='w-full pt-4 sm:pt-6'>
+            <div className='w-full'>
 
               <div
                 className='flex flex-col sm:flex-row justify-center
-                lg:justify-start gap-3 sm:gap-4'
-                data-aos='fade-up'
-                data-aos-delay='700'
+                lg:justify-start gap-4'
               >
 
                 {/* Download CV */}
@@ -134,14 +250,16 @@ const Hero = ({ darkMode }) => {
                   <button
                     className='w-full sm:w-auto
                     inline-flex items-center justify-center text-white
-                    bg-linear-to-r from-orange-500 to-amber-500 border-0
-                    py-3 px-6 sm:px-8
-                    hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]
-                    rounded-full text-base sm:text-lg font-semibold
-                    transition-all duration-300 transform'
+                    py-3 px-8 rounded-full text-base font-semibold
+                    transition-all duration-300 hover:scale-105
+                    hover:shadow-[0_0_40px_rgba(249,115,22,0.5)]'
+                    style={{
+                      background:
+                        'linear-gradient(to right, #f97316, #f59e0b)'
+                    }}
                   >
 
-                    <DownloadIcon className='w-4 h-4 sm:w-5 mr-2' />
+                    <DownloadIcon className='w-5 h-5 mr-2' />
 
                     Download CV
 
@@ -149,21 +267,18 @@ const Hero = ({ darkMode }) => {
 
                 </a>
 
-                {/* Contact Button */}
+                {/* Contact */}
                 <a href='#contact' className='w-full sm:w-auto'>
 
                   <button
                     className={`w-full sm:w-auto
-                    inline-flex items-center
-                    ${theme.buttonSecondary}
-                    justify-center border-0
-                    py-3 px-6 sm:px-8
-                    hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]
-                    rounded-full text-base sm:text-lg font-semibold
-                    transition-all duration-300 transform`}
+                    inline-flex items-center justify-center
+                    py-3 px-8 rounded-full text-base font-semibold
+                    transition-all duration-300 hover:scale-105
+                    ${theme.buttonSecondary}`}
                   >
 
-                    <Mail className='w-4 h-4 sm:w-5 sm:h-5 mr-2' />
+                    <Mail className='w-5 h-5 mr-2' />
 
                     Contact Me
 
@@ -177,35 +292,124 @@ const Hero = ({ darkMode }) => {
 
           </div>
 
-          {/* Right Image */}
+          {/* RIGHT IMAGE SECTION */}
           <div
-            className='lg:w-1/2 w-full max-w-md lg:max-w-lg mt-8
-            lg:mt-0 flex justify-center'
+            className='lg:w-1/2 w-full flex justify-center relative'
             data-aos='fade-left'
-            data-aos-delay='400'
           >
 
-            <div className='relative w-4/5 sm:w-3/4 lg:w-full'>
+            {/* Glow */}
+            <div className='absolute w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] bg-orange-500/20 blur-[120px] rounded-full'></div>
 
-              <div className='relative overflow-hidden'>
+            <div
+              className='relative rounded-[40px] p-4 backdrop-blur-xl border'
+              style={{
+                background: darkMode
+                  ? 'rgba(31,41,55,0.7)'
+                  : 'rgba(255,255,255,0.8)',
+                borderColor: darkMode
+                  ? '#374151'
+                  : '#e5e7eb'
+              }}
+            >
 
-                <img
-                  src='https://res.cloudinary.com/dhovcmjae/image/upload/f_auto,q_auto/v1777022215/hero_ey4bcz.png'
-                  alt='Hero Image'
-                  className='w-full h-auto object-cover transform
-                  hover:scale-105 transition-transform duration-500'
-                />
+              <img
+                src='https://res.cloudinary.com/dhovcmjae/image/upload/f_auto,q_auto/v1777022215/hero_ey4bcz.png'
+                alt='Hero'
+                className='w-[280px] sm:w-[420px] lg:w-[480px]
+                object-cover rounded-[30px]
+                hover:scale-105 transition-all duration-500'
+              />
+
+              {/* Floating Card 1 */}
+              <div
+                className='absolute -top-5 -left-5 rounded-2xl px-4 py-3 backdrop-blur-xl'
+                style={{
+                  background: darkMode
+                    ? 'rgba(17,24,39,0.9)'
+                    : 'rgba(255,255,255,0.9)',
+                  border: darkMode
+                    ? '1px solid #374151'
+                    : '1px solid #e5e7eb'
+                }}
+              >
+
+                <div className='flex items-center gap-3'>
+
+                  <div className='w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400'>
+                    <BarChart3 />
+                  </div>
+
+                  <div>
+
+                    <h4
+                      className='font-bold text-sm'
+                      style={{
+                        color: darkMode ? 'white' : '#111827'
+                      }}
+                    >
+                      Ads Strategy
+                    </h4>
+
+                    <p
+                      className='text-xs'
+                      style={{
+                        color: darkMode ? '#9ca3af' : '#6b7280'
+                      }}
+                    >
+                      Google & Meta Ads
+                    </p>
+
+                  </div>
+
+                </div>
 
               </div>
 
-              {/* Hi Icon */}
-              <img
-                src='https://res.cloudinary.com/dhovcmjae/image/upload/f_auto,q_auto/v1777022205/hi_dj6ajp.png'
-                alt='Hi icon'
-                className='absolute -top-4 sm:top-4 left-6
-                sm:left-20 w-14 h-14 sm:w-20 object-contain
-                animate-bounce opacity-90 z-10'
-              />
+              {/* Floating Card 2 */}
+              <div
+                className='absolute -bottom-5 right-0 rounded-2xl px-4 py-3 backdrop-blur-xl'
+                style={{
+                  background: darkMode
+                    ? 'rgba(17,24,39,0.9)'
+                    : 'rgba(255,255,255,0.9)',
+                  border: darkMode
+                    ? '1px solid #374151'
+                    : '1px solid #e5e7eb'
+                }}
+              >
+
+                <div className='flex items-center gap-3'>
+
+                  <div className='w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400'>
+                    <Target />
+                  </div>
+
+                  <div>
+
+                    <h4
+                      className='font-bold text-sm'
+                      style={{
+                        color: darkMode ? 'white' : '#111827'
+                      }}
+                    >
+                      Lead Generation
+                    </h4>
+
+                    <p
+                      className='text-xs'
+                      style={{
+                        color: darkMode ? '#9ca3af' : '#6b7280'
+                      }}
+                    >
+                      High Conversion Focus
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
 
             </div>
 
@@ -213,17 +417,10 @@ const Hero = ({ darkMode }) => {
 
         </div>
 
-        {/* Blur Circle */}
-        <div
-          className={`absolute -top-20 -left-20 w-40 h-40
-          sm:w-64 sm:h-64 ${theme.decorativeCircle}
-          rounded-full mix-blend-multiply filter blur-3xl
-          opacity-10 animate-pulse delay-1000 hidden sm:block`}
-        ></div>
-
       </section>
 
     </div>
+
   );
 };
 
