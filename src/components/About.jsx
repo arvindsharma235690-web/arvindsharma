@@ -54,7 +54,26 @@ const About = ({ darkMode }) => {
                         ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
                         data-aos='fade-up'
                         data-aos-delay='500'>
-                        Hi guys, my name is Ronak, I am doing Bachelor of Computer Application course. I know frontend development very well. I have learned HTML, CSS and JavaScript and React very well and have improved my skills by creating my projects on them. I've learned to use the TailwindCss framework as well. I also focus on the backend technologies of web development like: Node.js, Express.js, MongoDB, Postman and so on.
+                        I am an aspiring Digital Marketer with a strong interest in helping businesses grow their online presence through effective and data-driven marketing strategies. I recently completed my Digital Marketing training from Arena Trainings and I am currently gaining practical industry experience through my internship.
+                        <br /><br />
+                        My key areas of interest include:
+                        <br />
+                        • Search Engine Optimization (SEO) – On-Page and Off-Page Optimization
+                        <br />
+                        • Social Media Marketing and Campaign Management
+                        <br />
+                        • Lead Generation Strategies
+                        <br />
+                        • Paid Advertising (Google Ads & Meta Ads)
+                        <br />
+                        • Keyword Research and Competitor Analysis
+                        <br />
+                        • Content Marketing and Basic Copywriting
+                        <br /><br />
+
+                        I enjoy analyzing digital marketing trends, optimizing campaigns, and using data insights to improve online visibility and engagement.
+                        <br />
+                        Currently, I am focused on improving my skills in tools such as Google Ads, Google Analytics, and Meta Ads Manager while working on real-world marketing projects.
                     </p>
                     <div
                         className='flex flex-wrap justify-center
@@ -104,20 +123,20 @@ const About = ({ darkMode }) => {
                     </div>
 
                     <a
-                       href="#home"
-                       className={`w-full sm:w-auto border-2 border-orange-500 inline-flex items-center 
+                        href="#home"
+                        className={`w-full sm:w-auto border-2 border-orange-500 inline-flex items-center 
                        justify-center py-2 px-4 sm:px-6 
                        hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]
                        rounded-full text-base sm:text-lg font-semibold 
                        transition-all duration-300 transform
                        ${darkMode
-                         ? 'text-white bg-orange-500/10'
-                         : 'text-gray-800 bg-white/90'}`}
-                       data-aos='fade-up'
-                       data-aos-delay='800'
-                     >
-                       Learn More
-                     </a>
+                                ? 'text-white bg-orange-500/10'
+                                : 'text-gray-800 bg-white/90'}`}
+                        data-aos='fade-up'
+                        data-aos-delay='800'
+                    >
+                        Learn More
+                    </a>
                 </article>
             </div>
         </section>
