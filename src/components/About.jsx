@@ -54,7 +54,7 @@ const About = ({ darkMode }) => {
 
           {/* Main Image */}
           <div
-            className="relative rounded-[40px] overflow-hidden border p-3 backdrop-blur-xl"
+            className="relative rounded-[40px] border p-3 backdrop-blur-xl"
             style={{
               background: darkMode
                 ? "rgba(31,41,55,0.8)"
@@ -71,7 +71,7 @@ const About = ({ darkMode }) => {
 
             {/* Floating Card 1 */}
             <div
-              className="absolute -top-5 -left-5 px-4 py-3 rounded-2xl backdrop-blur-xl"
+              className="absolute -top-6 sm:-left-10 -left-2 px-4 py-3 rounded-2xl backdrop-blur-xl"
               style={{
                 background: darkMode
                   ? "rgba(17,24,39,0.9)"
@@ -116,7 +116,7 @@ const About = ({ darkMode }) => {
 
             {/* Floating Card 2 */}
             <div
-              className="absolute -bottom-5 right-0 px-4 py-3 rounded-2xl backdrop-blur-xl"
+              className="absolute -bottom-6 sm:-right-10 right-0 px-4 py-3 rounded-2xl backdrop-blur-xl"
               style={{
                 background: darkMode
                   ? "rgba(17,24,39,0.9)"
