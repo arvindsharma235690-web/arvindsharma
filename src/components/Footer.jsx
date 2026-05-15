@@ -96,7 +96,13 @@ const Footer = ({ darkMode }) => {
                     : "1px solid #d1d5db"
                 }}
               >
-                <FaInstagram className="text-lg text-orange-400 group-hover:text-white transition-all duration-300" />
+                <FaInstagram
+                  className={`text-lg text-orange-400 transition-all duration-300 ${
+                    darkMode
+                      ? "group-hover:text-white"
+                      : "group-hover:text-black"
+                  }`}
+                />
               </a>
 
               {/* LinkedIn */}
@@ -114,7 +120,13 @@ const Footer = ({ darkMode }) => {
                     : "1px solid #d1d5db"
                 }}
               >
-                <FaLinkedin className="text-lg text-orange-400 group-hover:text-white transition-all duration-300" />
+                <FaLinkedin
+                  className={`text-lg text-orange-400 transition-all duration-300 ${
+                    darkMode
+                      ? "group-hover:text-white"
+                      : "group-hover:text-black"
+                  }`}
+                />
               </a>
 
             </div>
